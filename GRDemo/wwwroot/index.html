@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-4"><span>Current Tab:</span><span data-bind="selectedTab().name()"></span></div>
+        <div class="col-md-4">
+            <ul class="nav nav-tabs" data-bind="foreach: tabs">
+                <li data-bind="css: { active: $parent.selectedTab() == $data } ">
+                    <a href="# " data-bind="text: name, click: $parent.selectedTab "></a>
+                </li>
+            </ul>
+
+            <div class="tab-content" data-bind="with: tabs()[0], visible: (selectedTab().id == tabs()[0].id)">
+                <div class="tab-pane active">
+                    <img src="http://rniemeyer.github.com/KnockMeOut/Images/loading.gif" data-bind="visible: !details.loaded()" />
+                    <a href="#" data-bind="visible: details.loaded, click: details.refresh">
+                        <img src="http://rniemeyer.github.com/KnockMeOut/Images/refresh.png" />
+                    </a>
+                    <span data-bind="text: details, css: { stale: !details.loaded() }"></span>
+                </div>
+            </div>
+
+            <div class="tab-content" data-bind="with: tabs()[1], visible: (selectedTab().id == tabs()[1].id)">
+                <div class="tab-pane active">
+                    <img src="http://rniemeyer.github.com/KnockMeOut/Images/loading.gif" data-bind="visible: !details.loaded()" />
+                    <a href="#" data-bind="visible: details.loaded, click: details.refresh">
+                        <img src="http://rniemeyer.github.com/KnockMeOut/Images/refresh.png" />
+                    </a>
+                    <span data-bind="text: details, css: { stale: !details.loaded() }"></span>
+                </div>
+            </div>
+
+            <div class="tab-content" data-bind="with: tabs()[2], visible: (selectedTab().id == tabs()[2].id)">
+                <div class="tab-pane active">
+                    <img src="http://rniemeyer.github.com/KnockMeOut/Images/loading.gif" data-bind="visible: !details.loaded()" />
+                    <a href="#" data-bind="visible: details.loaded, click: details.refresh">
+                        <img src="http://rniemeyer.github.com/KnockMeOut/Images/refresh.png" />
+                    </a>
+                    <span data-bind="text: details, css: { stale: !details.loaded() }"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <script src="lib/jquery/dist/jquery.min.js " type="text/javascript "></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js " type="text/javascript "></script>
+    <script src="lib/knockout/dist/knockout.js " type="text/javascript "></script>
+    <script src="js/src.js " type="text/javascript "></script>
+    <script src="js/app.js " type="text/javascript "></script>
+</body>
+
+</html>
